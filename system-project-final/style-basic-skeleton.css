@@ -1,0 +1,38 @@
+/* basic skeleton */
+
+.page-logo {
+    border: solid;
+    float: left;
+    height: 80px;
+    width: 150px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.heading {
+    border: solid;
+    height: 120px;
+    width: 900px;
+    margin-left: 280px;
+    margin-top: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.left-menu {
+    border: solid;
+    float: left;
+    margin-top: 100px;
+    height: 490px;
+    width: 250px;
+    border-radius: 15px;
+}
+
+.content-main {
+    border: solid;
+    margin-top: 50px;
+    margin-left: 280px;
+    margin-right: 20px;
+    height: 540px;
+    border-radius: 15px;
+}

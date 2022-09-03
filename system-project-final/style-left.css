@@ -1,0 +1,18 @@
+.button {
+    border: none;
+    margin: 10px;
+    margin-top: 30px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.btn-left-menu {
+    height: 45px;
+    width: 230px;
+    cursor: pointer;
+}
+
+.btn-left-menu:hover {
+    height: 50px;
+    width: 240px;
+}

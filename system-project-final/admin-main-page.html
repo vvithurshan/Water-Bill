@@ -1,0 +1,428 @@
+<?php
+$con=new mysqli("localhost","root","","project_final");
+
+if($con->connect_error){
+echo $con->connect_error;
+die("sorry connection error");
+}
+else{
+//  echo "database connected";
+}
+?>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME</title>
+        <link rel="stylesheet" type="text/css" href="style-basic-skeleton.css">
+        <link rel="stylesheet" type="text/css" href="style-left.css">
+        <link rel="stylesheet" type="text/css" href="table.css">
+        <style>
+            .admin-main {
+                border: solid;
+                margin-top: 10px;
+                margin-left: 20px;
+                padding-left: 80px;
+            }
+            
+            .admin-head-head {
+                border: solid;
+                height: 50px;
+            }
+            
+            .admin-head {
+                border: solid;
+                margin-top: 10px;
+                margin-left: 10px;
+                height: 50px;
+            }
+            
+            .btn-head-head {
+                margin-left: 20px;
+                width: 150px;
+                cursor: pointer;
+            }
+            
+            form {
+                /* padding-top: 65px; */
+                padding: 15px;
+                max-width: 800px;
+                height: 390px;
+                margin-top: 45px;
+                margin-left: 120px;
+                /* margin: 40px auto 0; */
+                box-shadow: 0 0 1em #222;
+                border-radius: 2px;
+                font-size: 15px;
+                text-align: center;
+                font-family: Arial Black;
+            }
+            
+            .form-admin {
+                padding: 15px;
+                max-width: 800px;
+                height: 120px;
+                margin-top: 45px;
+                margin-left: 120px;
+                /* margin: 40px auto 0; */
+                box-shadow: 0 0 1em #222;
+                border-radius: 2px;
+                font-size: 15px;
+                text-align: center;
+                font-family: Arial Black;
+            }
+            
+            .submit {
+                height: 45px;
+                width: 230px;
+                cursor: pointer;
+            }
+            
+            .submit:hover {
+                background-color: blue;
+            }
+            
+            #add-new {
+                display: none;
+            }
+            
+            #add-bill {
+                display: non;
+            }
+            
+            #view-bill {
+                display: none;
+            }
+            
+            #table {
+                display: none;
+            }
+            
+            #admin-rev {
+                display: none;
+            }
+            
+            #table-last {
+                display: none;
+            }
+            
+            .add-bill-last {
+                display: none;
+            }
+            
+            .form-connection-id {
+                padding: 15px;
+                max-width: 800px;
+                height: 90px;
+                margin-top: 45px;
+                margin-left: 120px;
+                /* margin: 40px auto 0; */
+                box-shadow: 0 0 1em #222;
+                border-radius: 2px;
+                font-size: 15px;
+                text-align: center;
+                font-family: Arial Black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="page-logo" class="page-logo"></div>
+        <div id="heading" class="heading">
+            <div id="admin-head-head" class="admin-head-head"></div>
+            <div id="admin-head" class="admin-head">
+                <button id="btn-" class="btn-head-head"><h3>NEW</h3></button>
+                <button id="btn-" class="btn-head-head"><h3>NEW</h3></button>
+                <button id="btn-" class="btn-head-head"><h3>NEW</h3></button>
+                <button id="btn-" class="btn-head-head"><h3>NEW</h3></button>
+            </div>
+        </div>
+        <div id="left-menu" class="left-menu">
+            <div id="button-home" class="button">
+                <a href="home-page.php"><button id="btn-left-menu-home" class="btn-left-menu">HOME</button></a>
+            </div>
+            <div id="button-customer-login" class="button">
+                <a href="user-login-page.php"> <button id="btn-left-menu-login" class="btn-left-menu">USER LOGIN</button></a>
+            </div>
+            <div id="button-admin-login" class="button">
+                <button id="btn-left-menu-admin" class="btn-left-menu">ADMIN LOGIN</button>
+            </div>
+            <div id="button-about-us" class="button">
+                <button id="btn-left-menu-about-us" class="btn-left-menu">ABOUT US</button>
+            </div>
+            <div id="button-feedlback" class="button">
+                <button id="btn-left-menu-feed-back" class="btn-left-menu">FEEDBACK</button>
+            </div>
+            <div id="button-logout" class="button">
+                <button id="btn-left-menu-" class="btn-left-menu">LOGOUT</button>
+            </div>
+        </div>
+        <div id="content-main" class="content-main">
+
+            <!-- Section one -->
+            <div id="add-new" class="admin-main">
+                <form>
+                    <h1>ADD NEW USER INTO THE SYSTEM
+                    </h1>
+                    <h2>CONNECTION ID</h2>
+                    <br><br>
+                    <input type=txt name=connection-id id="connection-id" class="connection-id" size="30px" height="50px">
+                    <br><br>
+                    <h1><button class="submit" name=login>ADD</button></h1>
+                </form>
+            </div>
+
+            <!-- section two -->
+            <div id="add-bill" class="admin-main">
+                <form class="form-connection-id" action="admin-main-page.html" method="POST">
+                    <h3>Connection ID</h3>
+                    <input type=txt name=connection-id-main id="connection-id-main" class="connection-id-main" size="30px" height="50px">
+                    <button name=connection-id-input id="connection-id-btn" class="connection-id-btn">Proceed</button>
+                </form>
+                <!-- <form> -->
+
+                <div id="add-bill-last" class="add-bill-last">
+                    <h3>Connection ID</h3>
+                    <input value=t ype=txt name=connection-id id="connection-id" class="connection-id" size="30px" height="50px">
+                    <h3>Number of Units</h3>
+                    <input type=txt name=number-of-units id="number-of-units" class="number-of-units" size="30px" height="50px">
+                    <h3>Rate per Unit</h3>
+                    <input type=txt name=rate-per-unit id="rate-per-unit" class="rate-per-unit" size="30px" height="50px">
+                    <br>
+                    <h3>Month</h3>
+                    <input type=text name=rate-per-unit id="rate-per-unit" class="rate-per-unit" size="30px" height="50px">
+                    <br><br>
+                    <button id="btn-calculate-bill"><h3>Calculate Bill</h3></button>
+                    <input type=txt name=connection-id id="bill-cal" class="connection-id" size="30px" height="50px">
+                    <br><br>
+                    <button><h3>Add Bill</h3></button>
+                </div>
+
+                <!-- </form> -->
+            </div>
+
+            <!-- section three -->
+            <div id="view-bill" class="admin-main">
+                <!--  -->
+                <?php
+$result=$con->query("SELECT * FROM customer_details") or die($mysqli->error);
+ 
+   
+
+ $row=$result->fetch_assoc();
+
+if(isset($_GET["delete"])) {
+    echo "<h3 style='color:red;'>Record deleted</h3>";
+}
+
+?>
+                    <table class="container">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h1>Connection id</h1>
+                                </th>
+                                <th>
+                                    <h1>Name</h1>
+                                </th>
+                                <th>
+                                    <h1>Mobile Number</h1>
+                                </th>
+                                <th>
+                                    <h1>Address</h1>
+                                </th>
+                                <th>
+                                    <h1>Delete</h1>
+                                </th> -->
+                                <th>
+                                    <h1>Edit</h1>
+                                </th>
+
+                                <!-- <!-- <th><h1>Delete</h1></th> -->
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $count = 0 ;
+?>
+                            <?php while($row=$result->fetch_assoc()): $count++; 
+
+?>
+                            <tr>
+                                <td>
+                                    <?php echo $row['connection_id'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['name'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['mobile_number'];?>
+                                </td>
+                                <td>
+                                    <?php  echo $row['address'];?>
+                                </td>
+
+
+                                <td><a href="admin-del.php?delete=<?php echo $row['id'];?>" class="btn btn-info">Delete</a></td>
+                                <td><a href="admin-del.php?edit=<?php echo $row['id'];?>" class="btn btn-info">Edit</a></td>
+                            </tr>
+
+                            <?php endwhile; echo $count;
+?>
+
+                        </tbody>
+                    </table>
+                    <h2>Total Number of customers:
+                        <?php echo $count;?>
+                    </h2>
+                    <!--  -->
+            </div>
+
+
+            <!-- section four -->
+            <div id="admin-rev" class="admin-main">
+                <form class="form-admin" action="admin-main-page.php" method="POST">
+                    <h3>Month:</h3><input type="text" name=month_name id="month" required> <button name="submit" class="submit">  Go</button></a>
+
+                </form>
+
+                <div id="table">
+                    <?php
+if(isset($_POST["submit"])){
+    $month=$_POST["month_name"];
+    echo $month;
+ 
+ if($month=="All" || $month=="all"){
+    $result=$con->query("SELECT * FROM bill_details") or die($mysqli->error);
+ 
+   }
+ else{
+ $result=$con->query("SELECT * FROM bill_details where month='$month'") or die($mysqli->error);}
+ $row=$result->fetch_assoc();
+
+   }
+
+?>
+                        <table class="container">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h1>Connection id</h1>
+                                    </th>
+                                    <th>
+                                        <h1>month</h1>
+                                    </th>
+                                    <th>
+                                        <h1>Bill</h1>
+                                    </th>
+                                    <th>
+                                        <h1>payment</h1>
+                                    </th>
+                                    <th>
+                                        <h1>Status</h1>
+                                    </th>
+                                    <!-- <th><h1>Delet</h1></th>
+        <th><h1>Edit</h1></th> -->
+
+                                    <!-- <th><h1>Delete</h1></th> -->
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $count = 0 ;
+$total=0;
+$payment=0;?>
+                                <?php while($row=$result->fetch_assoc()): $count++; 
+$total=$total+$row['bill'];
+$payment=$payment+$row['payment'];
+if($month=="all" || $month=="All"){
+    $mon="ALL MONTH";
+}
+else{
+    $mon="MONTH"." ".$row['month'];
+}
+
+?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['connection_id'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['month'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['bill'];?>
+                                    </td>
+                                    <td>
+                                        <?php  echo $row['payment'];?>
+                                    </td>
+                                    <td>
+                                        <?php  echo $row['status'];?>
+                                    </td>
+
+
+                                    <!-- <td><a href="delete.php?delete=<?php echo $row['id'];?>"
+    class="btn btn-info">Delete</a></td>
+    <td><a href="delete.php?edit=<?php echo $row['id'];?>"
+    class="btn btn-info">Edit</a></td> -->
+                                </tr>
+
+                                <?php endwhile; echo $count,$total,$payment;
+?>
+
+                            </tbody>
+                        </table>
+                </div>
+                <div id="table-last">
+                    <h2 style='text-align:cente;color:red'>
+                        <?php if($mon==""){}else{echo $mon;}?>
+                    </h2>
+                    <h2>Total Number of Payment:
+                        <?php echo $count;?>
+                    </h2>
+                    <h2>Total Amount to be paid:
+                        <?php echo $total;?>
+                    </h2>
+                    <h2>Toal Income:
+                        <?php echo $payment," ( " ,round($payment/$total*100,2)," %)";?>
+                    </h2>
+                </div>
+
+            </div>
+
+        </div>
+        <script src="jquery-3.5.1.min.js"></script>
+
+        <script>
+            document.getElementById("btn-left-menu-admin").style.color = "blue";
+
+            function fcn_month() {
+                document.getElementById("table").style.display = "block";
+                document.getElementById("table-last").style.display = "block";
+
+                console.log("table called");
+
+            }
+            document.getElementById("btn-calculate-bill").addEventListener('click', function() {
+                var units = document.getElementById("number-of-units").value;
+                var rate = document.getElementById("rate-per-unit").value;
+
+                document.getElementById("bill-cal").value = units * rate;
+
+                console.log(units * rate);
+            });
+
+            document.getElementById("connection-id-btn").addEventListener('click', function() {
+                document.getElementById("add-bill-last").style.display = "block";
+            })
+        </script>
+    </body>
+
+    </html>
+
+    <?php
+if(isset($_POST["submit"])){
+ echo "<script>fcn_month();</script>";}
+    
+?>
